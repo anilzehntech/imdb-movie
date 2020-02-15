@@ -1,0 +1,78 @@
+
+
+<h2 class="m-top">IMDB Movie Information</h2>
+<div class="row">
+ <div class="col-sm-12 text-right">
+    <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search by any matching keyword"> 
+ </div>   
+<div class="col-sm-12">
+    <div class="table-responsive-sm">
+        <table class="table">
+            <thead>
+            <tr class="tr-cls">
+                <th class="cur-cls" (click)="sortProperty('movie_title')">Movie Title</th>
+                <th class="cur-cls" (click)="sortProperty('director_name')">Director Name</th>
+                <th class="cur-cls" (click)="sortProperty('actor_1_name')">Actor_1 Name</th>
+                <th class="cur-cls" (click)="sortProperty('actor_2_name')">Actor_2 Name</th>
+                <th class="cur-cls" (click)="sortProperty('genres')">Genres</th>
+                <th class="cur-cls" (click)="sortProperty('language')">Language</th>
+                <th class="cur-cls" (click)="sortProperty('country')">Country</th>
+                <th class="cur-cls" (click)="sortProperty('content_rating')">Content Rating</th>
+                <th class="cur-cls" (click)="sortProperty('budget')">Budget</th>
+                <th class="cur-cls" (click)="sortProperty('title_year')">Title Year</th>
+                <th class="cur-cls" (click)="sortProperty('plot_keywords')">Plot Keywords</th>
+                <th class="cur-cls" (click)="sortProperty('movie_imdb_link')">Movie IMDB Link</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let movie of movieData | filter : searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+                <td>
+                    <a class="com-cls" href="javascript:void(0)" data-toggle="tooltip" title="{{movie.movie_title}}">
+                        {{(movie.movie_title.length > 6) ? (movie.movie_title | slice:0:6)+'...' : (movie.movie_title ? movie.movie_title : '-') }}
+                    </a>
+                </td>
+                <td>
+                    <a class="com-cls" href="javascript:void(0)" data-toggle="tooltip" title="{{movie.director_name}}">
+                        {{(movie.director_name.length > 6) ? (movie.director_name | slice:0:6)+'...' : (movie.director_name ? movie.director_name : '-') }}
+                    </a>
+                </td>
+                <td>
+                    <a class="com-cls" href="javascript:void(0)" data-toggle="tooltip" title="{{movie.actor_1_name}}">
+                        {{(movie.actor_1_name.length > 6) ? (movie.actor_1_name | slice:0:6)+'...' : (movie.actor_1_name ? movie.actor_1_name : '-') }}
+                    </a>
+                </td>
+                <td>
+                    <a class="com-cls" href="javascript:void(0)" data-toggle="tooltip" title="{{movie.actor_2_name}}">
+                        {{(movie.actor_2_name.length > 6) ? (movie.actor_2_name | slice:0:6)+'...' : (movie.actor_2_name ? movie.actor_2_name : '-') }}
+                    </a>
+                </td>
+                <td>
+                    <a class="com-cls" href="javascript:void(0)" data-toggle="tooltip" title="{{movie.genres}}">
+                       {{(movie.genres.length > 6) ? (movie.genres | slice:0:6)+'...' : (movie.genres ? movie.genres : '-') }}
+                    </a>
+                </td>
+                <td>{{movie.language ? movie.language : '-'}}</td>
+                <td>{{movie.country ? movie.country : '-'}}</td>
+                <td>{{movie.content_rating ? movie.content_rating : '-'}}</td>
+                <td>{{movie.budget ? movie.budget : '-'}}</td>
+                <td>{{movie.title_year ? movie.title_year : '-'}}</td>
+                <td>
+                    <a class="com-cls" href="javascript:void(0)" data-toggle="tooltip" title="{{movie.plot_keywords}}">
+                       {{(movie.plot_keywords.length > 6) ? (movie.plot_keywords | slice:0:6)+'...' : (movie.plot_keywords ? movie.plot_keywords : '-') }}
+                    </a>
+                </td>
+                <td>
+                    <a class="com-cls" href="javascript:void(0)" data-toggle="tooltip" title="{{movie.movie_imdb_link}}">
+                        {{(movie.movie_imdb_link.length > 6) ? (movie.movie_imdb_link | slice:0:6)+'...' : (movie.movie_imdb_link ? movie.movie_imdb_link : '-') }}
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+        <div class="text-right">
+           <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+</div>
+</div>

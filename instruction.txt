@@ -1,0 +1,12 @@
+Hi,
+I have created frontend in angular8.
+To run the application, please follow the instructions:
+1. Install Nodejs (https://nodejs.org)
+2. Install Angular CLI (npm install -g @angular/cli)
+3. cd project directory
+4. Install dependencies (npm install)
+5. Start application (npm start) 
+6. Opens  browser as address(http://localhost:4200)
+
+Because of cors request origin issue, I have created proxy.config.json file. 
+(ng serve --proxy-config ./src/proxy.config.json)

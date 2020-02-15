@@ -1,0 +1,16 @@
+.table thead th {
+    vertical-align: top;
+    border-bottom: 2px solid #dee2e6;
+}
+.tr-cls{
+    background-color: #f1f1f1;
+}
+.m-top{
+    margin-top: 50px;
+}
+.com-cls{
+    text-decoration: none;
+}
+.cur-cls{
+    cursor: pointer;
+}
